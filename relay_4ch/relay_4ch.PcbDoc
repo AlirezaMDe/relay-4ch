@@ -50,6 +50,8 @@ Zone3=MainsZone|X1=50mm|Y1=0mm|X2=120mm|Y2=60mm|NetClass=Mains
 
 [Keepout/Slot]
 ; Milled slot between logic and mains for increased creepage
+; Design Rule: SLOT_ISOLATION - Maintains 8mm+ creepage requirement
+; If board size changes, adjust slot position to maintain isolation zones
 Slot1.Type=RoutedSlot
 Slot1.X1=48mm
 Slot1.Y1=5mm
@@ -58,6 +60,7 @@ Slot1.Y2=55mm
 Slot1.Width=2mm
 Slot1.Layer=MultiLayer
 Slot1.Note=Creepage isolation slot between logic and mains
+Slot1.DesignRule=SLOT_ISOLATION_BARRIER
 
 [Component Placement]
 ; All components on top side

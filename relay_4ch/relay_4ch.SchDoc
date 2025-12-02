@@ -85,8 +85,8 @@ Comp13=R8|RES_0805|10K 0805 (Pull-up)
 ; ULN2803A Darlington Driver
 Comp14=U5|ULN2803A|8-Channel Darlington Driver (using 4 channels)
 
-; Isolated DC-DC Converter
-Comp15=U6|NME0505SC|Murata Isolated DC-DC 5V to 5V 1W
+; Isolated DC-DC Converter (3.3V to 5V isolated)
+Comp15=U6|NME0503SC|Murata Isolated DC-DC 3.3V to 5V 1W
 
 ; Relays
 Comp16=K1|SRD-05VDC-SL-C|Songle 5V SPDT Relay 10A
@@ -218,14 +218,14 @@ Wire38=K2.COIL+->VCOIL_5V_ISO
 Wire39=K3.COIL+->VCOIL_5V_ISO
 Wire40=K4.COIL+->VCOIL_5V_ISO
 
-; NME0505SC DC-DC connections
-Wire41=U6.1->VCC_5V_IN
+; NME0503SC DC-DC connections (3.3V input to 5V isolated output)
+; Note: NME0503SC accepts 3.3V input and provides 5V isolated output
+Wire41=U6.1->VCC_3V3
 Wire42=U6.2->GND
 Wire43=U6.4->VCOIL_5V_ISO
 Wire44=U6.5->GND_ISO
 
-; Input 5V from 3.3V supply (Note: Need external 5V or use regulator)
-; For this design, assume external 5V provided or use VCC_3V3 with boost
+; VCC_3V3 bypass capacitor
 Wire45=VCC_3V3->C5.1
 Wire46=C5.2->GND
 

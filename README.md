@@ -30,8 +30,9 @@ This project contains a complete Altium Designer reference design for a 4-channe
 | Board Size | 120mm × 60mm |
 | Layers | 2 (Top + Bottom) |
 | PCB Material | FR-4, 1.6mm, 1oz copper |
-| Input Voltage | 5V DC (for DC-DC) + 3.3V logic |
+| Input Voltage | 3.3V DC (for logic and DC-DC) |
 | Relay Type | Songle SRD-05VDC-SL-C (5V coil, SPDT) |
+| DC-DC Converter | Murata NME0503SC (3.3V to 5V isolated) |
 | Contact Rating | 10A @ 250VAC / 10A @ 30VDC |
 | Isolation | 1kVDC (NME0505SC) |
 | Control Interface | 6-pin header (3.3V, GND, IN1-IN4) |
@@ -77,7 +78,7 @@ relay_4ch/
 |------------|------|-------------|
 | U1-U4 | PC817 | Optocouplers for isolation |
 | U5 | ULN2803A | 8-ch Darlington driver (4 used) |
-| U6 | NME0505SC | Isolated DC-DC converter |
+| U6 | NME0503SC | Isolated DC-DC converter (3.3V to 5V) |
 | K1-K4 | SRD-05VDC-SL-C | 5V SPDT relays |
 | RV1 | 14D471K | MOV overvoltage protection |
 | F1-F4 | 10A 5×20mm | Per-channel fuses |
