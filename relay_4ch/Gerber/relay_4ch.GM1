@@ -1,0 +1,35 @@
+G04 Relay 4-Channel Board - Board Outline*
+G04 Generated for relay_4ch Altium Project*
+G04 RS-274X Format - Mechanical Layer*
+%FSLAX35Y35*%
+%MOIN*%
+%ADD10C,0.008*%
+%ADD11C,0.079*%
+
+G04 Board Size: 120mm x 60mm (4.724" x 2.362")*
+G04 Routed board outline with isolation slot*
+
+D10*
+G01*
+G04 Main Board Outline*
+X000000Y000000D02*
+X472441Y000000D01*
+X472441Y236220D01*
+X000000Y236220D01*
+X000000Y000000D01*
+
+G04 Isolation Milled Slot*
+G04 X=48mm (1.890"), Y=5mm to 55mm (0.197" to 2.165"), Width=2mm*
+D11*
+X188976Y019685D02*
+X188976Y216535D01*
+
+G04 Mounting Holes (M3 = 3.2mm diameter)*
+G04 Hole centers at 3mm from edges*
+D11*
+X011811Y011811D03*
+X460630Y011811D03*
+X011811Y224409D03*
+X460630Y224409D03*
+
+M02*

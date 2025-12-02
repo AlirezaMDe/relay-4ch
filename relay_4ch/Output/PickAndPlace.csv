@@ -1,0 +1,56 @@
+Designator,Comment,Layer,Footprint,Center-X(mm),Center-Y(mm),Rotation,Description
+J1,MCU Header,Top,HEADER_6P_2.54mm,10.00,30.00,0,6-Pin Header 2.54mm for MCU Interface
+U1,PC817,Top,PC817_DIP4,25.00,48.00,0,Optocoupler Channel 1
+U2,PC817,Top,PC817_DIP4,25.00,38.00,0,Optocoupler Channel 2
+U3,PC817,Top,PC817_DIP4,25.00,28.00,0,Optocoupler Channel 3
+U4,PC817,Top,PC817_DIP4,25.00,18.00,0,Optocoupler Channel 4
+R1,470R,Top,RES_0805,18.00,48.00,90,Input resistor CH1
+R2,470R,Top,RES_0805,18.00,38.00,90,Input resistor CH2
+R3,470R,Top,RES_0805,18.00,28.00,90,Input resistor CH3
+R4,470R,Top,RES_0805,18.00,18.00,90,Input resistor CH4
+R5,10K,Top,RES_0805,32.00,48.00,90,Pull-up resistor CH1
+R6,10K,Top,RES_0805,32.00,38.00,90,Pull-up resistor CH2
+R7,10K,Top,RES_0805,32.00,28.00,90,Pull-up resistor CH3
+R8,10K,Top,RES_0805,32.00,18.00,90,Pull-up resistor CH4
+U5,ULN2803A,Top,ULN2803A_DIP18,42.00,30.00,0,8-Channel Darlington Driver
+U6,NME0503SC,Top,NME0505SC_SIP4,42.00,50.00,90,Isolated DC-DC 3.3V-5V
+K1,SRD-05VDC-SL-C,Top,SRD_05VDC_SL_C,65.00,30.00,90,Relay Channel 1
+K2,SRD-05VDC-SL-C,Top,SRD_05VDC_SL_C,80.00,30.00,90,Relay Channel 2
+K3,SRD-05VDC-SL-C,Top,SRD_05VDC_SL_C,95.00,30.00,90,Relay Channel 3
+K4,SRD-05VDC-SL-C,Top,SRD_05VDC_SL_C,110.00,30.00,90,Relay Channel 4
+D1,LED Green,Top,LED_0805,65.00,48.00,0,Status LED CH1
+D2,LED Green,Top,LED_0805,80.00,48.00,0,Status LED CH2
+D3,LED Green,Top,LED_0805,95.00,48.00,0,Status LED CH3
+D4,LED Green,Top,LED_0805,110.00,48.00,0,Status LED CH4
+R13,1K,Top,RES_0805,65.00,52.00,0,LED resistor CH1
+R14,1K,Top,RES_0805,80.00,52.00,0,LED resistor CH2
+R15,1K,Top,RES_0805,95.00,52.00,0,LED resistor CH3
+R16,1K,Top,RES_0805,110.00,52.00,0,LED resistor CH4
+J2,Mains Input,Top,TERMINAL_2P_5.08mm,58.00,56.00,0,2-Position Terminal L/N
+RV1,14D471K,Top,MOV_14D,58.00,48.00,0,MOV Overvoltage Protection
+F1,10A Fuse,Top,FUSE_5x20_HOLDER,55.00,38.00,90,Fuse CH1
+F2,10A Fuse,Top,FUSE_5x20_HOLDER,55.00,28.00,90,Fuse CH2
+F3,10A Fuse,Top,FUSE_5x20_HOLDER,55.00,18.00,90,Fuse CH3
+F4,10A Fuse,Top,FUSE_5x20_HOLDER,55.00,8.00,90,Fuse CH4
+J3,CH1 Output,Top,TERMINAL_3P_5.08mm,65.00,4.00,0,3-Position Terminal NC/COM/NO
+J4,CH2 Output,Top,TERMINAL_3P_5.08mm,80.00,4.00,0,3-Position Terminal NC/COM/NO
+J5,CH3 Output,Top,TERMINAL_3P_5.08mm,95.00,4.00,0,3-Position Terminal NC/COM/NO
+J6,CH4 Output,Top,TERMINAL_3P_5.08mm,110.00,4.00,0,3-Position Terminal NC/COM/NO
+C1,100nF X2,Top,CAP_X2_15mm,65.00,15.00,90,Snubber capacitor CH1
+C2,100nF X2,Top,CAP_X2_15mm,80.00,15.00,90,Snubber capacitor CH2
+C3,100nF X2,Top,CAP_X2_15mm,95.00,15.00,90,Snubber capacitor CH3
+C4,100nF X2,Top,CAP_X2_15mm,110.00,15.00,90,Snubber capacitor CH4
+R9,100R 2W,Top,RES_MELF_0207,68.00,15.00,90,Snubber resistor CH1
+R10,100R 2W,Top,RES_MELF_0207,83.00,15.00,90,Snubber resistor CH2
+R11,100R 2W,Top,RES_MELF_0207,98.00,15.00,90,Snubber resistor CH3
+R12,100R 2W,Top,RES_MELF_0207,113.00,15.00,90,Snubber resistor CH4
+C5,100nF,Top,CAP_0805,10.00,50.00,0,VCC_3V3 bypass
+C6,100nF,Top,CAP_0805,42.00,42.00,0,VCOIL_5V_ISO bypass
+TP1,VCC_3V3,Top,TESTPOINT_1.5mm,5.00,55.00,0,Test point VCC
+TP2,GND,Top,TESTPOINT_1.5mm,5.00,50.00,0,Test point GND
+TP3,VCOIL_5V_ISO,Top,TESTPOINT_1.5mm,42.00,55.00,0,Test point isolated 5V
+TP4,RELAY1_COIL,Top,TESTPOINT_1.5mm,65.00,42.00,0,Test point K1 coil
+TP5,RELAY2_COIL,Top,TESTPOINT_1.5mm,80.00,42.00,0,Test point K2 coil
+TP6,RELAY3_COIL,Top,TESTPOINT_1.5mm,95.00,42.00,0,Test point K3 coil
+TP7,RELAY4_COIL,Top,TESTPOINT_1.5mm,110.00,42.00,0,Test point K4 coil
+SJ1,GND-GND_ISO,Top,JUMPER_SJ_0805,42.00,10.00,0,Solder jumper (open default)
