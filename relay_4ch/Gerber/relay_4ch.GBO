@@ -1,0 +1,24 @@
+G04 Relay 4-Channel Board - Bottom Silkscreen*
+G04 Generated for relay_4ch Altium Project*
+G04 RS-274X Format*
+%FSLAX35Y35*%
+%MOIN*%
+%ADD10C,0.008*%
+
+G04 Board Size: 120mm x 60mm*
+G04 Bottom silkscreen - minimal (board outline only)*
+
+D10*
+G01*
+G04 Board Outline*
+X000000Y000000D02*
+X472441Y000000D01*
+X472441Y236220D01*
+X000000Y236220D01*
+X000000Y000000D01*
+
+G04 Isolation Slot Marking*
+X188976Y019685D02*
+X188976Y216535D01*
+
+M02*

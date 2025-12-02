@@ -1,0 +1,64 @@
+[OutputJobOptions]
+Version=1.0
+
+[OutputGroup1]
+Name=Manufacturing Outputs
+Description=Gerber, Drill, BOM, and Pick-and-Place outputs
+
+[Output1]
+Name=Gerber Files
+Type=Gerber
+Format=RS-274X
+Units=Inches
+Precision=2:5
+Mirror=None
+Layers=Top,Bottom,TopOverlay,BottomOverlay,TopSolder,BottomSolder,Mechanical1
+OutputPath=..\Gerber\
+
+[Output2]
+Name=NC Drill
+Type=NC Drill
+Format=Excellon 2
+Units=Inches
+CoordinateFormat=2:5
+OptimizeRoute=True
+OutputPath=..\Gerber\
+
+[Output3]
+Name=Bill of Materials
+Type=BOM
+Format=CSV
+OutputPath=BOM.csv
+
+[Output4]
+Name=Pick and Place
+Type=Pick and Place
+Format=CSV
+Units=mm
+OutputPath=PickAndPlace.csv
+
+[Output5]
+Name=Assembly Drawing
+Type=Assembly
+Format=PDF
+Layers=TopOverlay,Mechanical1
+OutputPath=Assembly.pdf
+
+[Output6]
+Name=Schematic Print
+Type=SchematicPrint
+Format=PDF
+OutputPath=Schematic.pdf
+
+[Output7]
+Name=PCB Print
+Type=PCBPrint
+Format=PDF
+Layers=Top,Bottom,TopOverlay,Mechanical1
+OutputPath=PCB_Print.pdf
+
+[ValidationChecks]
+DRC=Enabled
+ERC=Enabled
+ClearanceCheck=3.5mm
+NetlistCompare=Enabled

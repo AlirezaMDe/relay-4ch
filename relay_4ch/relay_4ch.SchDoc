@@ -1,0 +1,334 @@
+|HEADER=Protel for Windows - Schematic Capture ASCII File Version 5.0|
+
+[SheetInfo]
+SheetName=relay_4ch
+SheetStyle=A3
+SheetOrientation=Landscape
+TitleBlockType=Standard
+SheetBorderColor=0
+SheetAreaColor=16777215
+ShowTemplateGraphics=F
+GridSize=10
+SnapSize=10
+Hotspotsize=15
+Author=Reference Design
+Organization=relay-4ch
+Date=2024-01-15
+Title=4-Channel Mains Relay Board
+DocumentNumber=REL4CH-SCH
+Revision=1.0
+Notes=DANGER - MAINS VOLTAGE - Reference design only - Must be reviewed and certified before use
+
+[Design Notes]
+Note1=This is a 4-channel mains relay control board with optical isolation
+Note2=Input: 3.3V logic from MCU via J1 header
+Note3=Output: 4x SPDT relay contacts rated 10A @ 230VAC
+Note4=Isolation: PC817 optocouplers + NME0505SC isolated DC-DC
+Note5=WARNING: This board handles MAINS VOLTAGE (230VAC) - DANGER
+
+[Power Nets]
+Net1=VCC_3V3
+Net2=GND
+Net3=VCOIL_5V_ISO
+Net4=GND_ISO
+Net5=MAINS_L
+Net6=MAINS_N
+
+[Signal Nets]
+Net7=IN1
+Net8=IN2
+Net9=IN3
+Net10=IN4
+Net11=OPTO1_OUT
+Net12=OPTO2_OUT
+Net13=OPTO3_OUT
+Net14=OPTO4_OUT
+Net15=RELAY1_COIL+
+Net16=RELAY2_COIL+
+Net17=RELAY3_COIL+
+Net18=RELAY4_COIL+
+Net19=CH1_COM
+Net20=CH1_NO
+Net21=CH1_NC
+Net22=CH2_COM
+Net23=CH2_NO
+Net24=CH2_NC
+Net25=CH3_COM
+Net26=CH3_NO
+Net27=CH3_NC
+Net28=CH4_COM
+Net29=CH4_NO
+Net30=CH4_NC
+
+[Component List]
+; MCU Interface Header
+Comp1=J1|HEADER_6P|MCU Interface (3.3V/GND/IN1-IN4)
+
+; Optocouplers for isolation (input side)
+Comp2=U1|PC817|Optocoupler Channel 1
+Comp3=U2|PC817|Optocoupler Channel 2
+Comp4=U3|PC817|Optocoupler Channel 3
+Comp5=U4|PC817|Optocoupler Channel 4
+
+; Current limiting resistors for optocoupler LEDs
+Comp6=R1|RES_0805|470R 0805 (LED current limit)
+Comp7=R2|RES_0805|470R 0805 (LED current limit)
+Comp8=R3|RES_0805|470R 0805 (LED current limit)
+Comp9=R4|RES_0805|470R 0805 (LED current limit)
+
+; Pull-up resistors for optocoupler outputs (optional)
+Comp10=R5|RES_0805|10K 0805 (Pull-up)
+Comp11=R6|RES_0805|10K 0805 (Pull-up)
+Comp12=R7|RES_0805|10K 0805 (Pull-up)
+Comp13=R8|RES_0805|10K 0805 (Pull-up)
+
+; ULN2803A Darlington Driver
+Comp14=U5|ULN2803A|8-Channel Darlington Driver (using 4 channels)
+
+; Isolated DC-DC Converter
+Comp15=U6|NME0505SC|Murata Isolated DC-DC 5V to 5V 1W
+
+; Relays
+Comp16=K1|SRD-05VDC-SL-C|Songle 5V SPDT Relay 10A
+Comp17=K2|SRD-05VDC-SL-C|Songle 5V SPDT Relay 10A
+Comp18=K3|SRD-05VDC-SL-C|Songle 5V SPDT Relay 10A
+Comp19=K4|SRD-05VDC-SL-C|Songle 5V SPDT Relay 10A
+
+; MOV for overvoltage protection
+Comp20=RV1|MOV_14D|14D471K (275VAC, 430V clamp)
+
+; Per-channel fuses
+Comp21=F1|FUSE_5x20|10A 250V Fast-blow
+Comp22=F2|FUSE_5x20|10A 250V Fast-blow
+Comp23=F3|FUSE_5x20|10A 250V Fast-blow
+Comp24=F4|FUSE_5x20|10A 250V Fast-blow
+
+; Snubber capacitors (X2 safety rated)
+Comp25=C1|CAP_X2|100nF X2 275VAC
+Comp26=C2|CAP_X2|100nF X2 275VAC
+Comp27=C3|CAP_X2|100nF X2 275VAC
+Comp28=C4|CAP_X2|100nF X2 275VAC
+
+; Snubber resistors
+Comp29=R9|RES_MELF|100R 2W (Snubber)
+Comp30=R10|RES_MELF|100R 2W (Snubber)
+Comp31=R11|RES_MELF|100R 2W (Snubber)
+Comp32=R12|RES_MELF|100R 2W (Snubber)
+
+; Status LEDs
+Comp33=D1|LED_0805|Green LED (CH1 status)
+Comp34=D2|LED_0805|Green LED (CH2 status)
+Comp35=D3|LED_0805|Green LED (CH3 status)
+Comp36=D4|LED_0805|Green LED (CH4 status)
+
+; LED current limiting resistors
+Comp37=R13|RES_0805|1K 0805 (LED limit)
+Comp38=R14|RES_0805|1K 0805 (LED limit)
+Comp39=R15|RES_0805|1K 0805 (LED limit)
+Comp40=R16|RES_0805|1K 0805 (LED limit)
+
+; Mains input terminal
+Comp41=J2|TERMINAL_2P|Mains Input (L/N)
+
+; Output terminals (COM/NO/NC per channel)
+Comp42=J3|TERMINAL_3P|Channel 1 Output (NC/COM/NO)
+Comp43=J4|TERMINAL_3P|Channel 2 Output (NC/COM/NO)
+Comp44=J5|TERMINAL_3P|Channel 3 Output (NC/COM/NO)
+Comp45=J6|TERMINAL_3P|Channel 4 Output (NC/COM/NO)
+
+; Bypass capacitors
+Comp46=C5|CAP_0805|100nF (VCC_3V3 bypass)
+Comp47=C6|CAP_0805|100nF (VCOIL_5V_ISO bypass)
+
+; Test points
+Comp48=TP1|TESTPOINT|VCC_3V3 Test Point
+Comp49=TP2|TESTPOINT|GND Test Point
+Comp50=TP3|TESTPOINT|VCOIL_5V_ISO Test Point
+Comp51=TP4|TESTPOINT|Relay 1 Coil Test Point
+Comp52=TP5|TESTPOINT|Relay 2 Coil Test Point
+Comp53=TP6|TESTPOINT|Relay 3 Coil Test Point
+Comp54=TP7|TESTPOINT|Relay 4 Coil Test Point
+
+; Solder jumper for GND/GND_ISO connection
+Comp55=SJ1|JUMPER_SJ|GND-GND_ISO Solder Jumper (NO by default)
+
+[Netlist Connections]
+; MCU Header J1 connections
+; Pin 1: VCC_3V3, Pin 2: GND, Pins 3-6: IN1-IN4
+
+; J1 Power connections
+Wire1=J1.1->VCC_3V3
+Wire2=J1.2->GND
+
+; J1 Signal connections to optocoupler input resistors
+Wire3=J1.3->R1.1
+Wire4=J1.4->R2.1
+Wire5=J1.5->R3.1
+Wire6=J1.6->R4.1
+
+; Optocoupler input LED connections (anode through resistor)
+Wire7=R1.2->U1.1
+Wire8=R2.2->U2.1
+Wire9=R3.2->U3.1
+Wire10=R4.2->U4.1
+
+; Optocoupler LED cathodes to GND
+Wire11=U1.2->GND
+Wire12=U2.2->GND
+Wire13=U3.2->GND
+Wire14=U4.2->GND
+
+; Optocoupler collector to VCOIL_5V_ISO through pull-up
+Wire15=U1.4->R5.1
+Wire16=U2.4->R6.1
+Wire17=U3.4->R7.1
+Wire18=U4.4->R8.1
+Wire19=R5.2->VCOIL_5V_ISO
+Wire20=R6.2->VCOIL_5V_ISO
+Wire21=R7.2->VCOIL_5V_ISO
+Wire22=R8.2->VCOIL_5V_ISO
+
+; Optocoupler emitters to GND_ISO
+Wire23=U1.3->GND_ISO
+Wire24=U2.3->GND_ISO
+Wire25=U3.3->GND_ISO
+Wire26=U4.3->GND_ISO
+
+; Optocoupler outputs to ULN2803A inputs
+Wire27=U1.4->U5.1
+Wire28=U2.4->U5.2
+Wire29=U3.4->U5.3
+Wire30=U4.4->U5.4
+
+; ULN2803A GND connection
+Wire31=U5.9->GND_ISO
+
+; ULN2803A COM connection to VCOIL_5V_ISO (for internal flyback diodes)
+Wire32=U5.10->VCOIL_5V_ISO
+
+; ULN2803A outputs to relay coils (positive)
+Wire33=U5.18->K1.COIL-
+Wire34=U5.17->K2.COIL-
+Wire35=U5.16->K3.COIL-
+Wire36=U5.15->K4.COIL-
+
+; Relay coil positive to VCOIL_5V_ISO
+Wire37=K1.COIL+->VCOIL_5V_ISO
+Wire38=K2.COIL+->VCOIL_5V_ISO
+Wire39=K3.COIL+->VCOIL_5V_ISO
+Wire40=K4.COIL+->VCOIL_5V_ISO
+
+; NME0505SC DC-DC connections
+Wire41=U6.1->VCC_5V_IN
+Wire42=U6.2->GND
+Wire43=U6.4->VCOIL_5V_ISO
+Wire44=U6.5->GND_ISO
+
+; Input 5V from 3.3V supply (Note: Need external 5V or use regulator)
+; For this design, assume external 5V provided or use VCC_3V3 with boost
+Wire45=VCC_3V3->C5.1
+Wire46=C5.2->GND
+
+; Isolated side bypass
+Wire47=VCOIL_5V_ISO->C6.1
+Wire48=C6.2->GND_ISO
+
+; Solder jumper between GND and GND_ISO (optional connection)
+Wire49=SJ1.1->GND
+Wire50=SJ1.2->GND_ISO
+
+; Mains input terminal
+Wire51=J2.1->MAINS_L
+Wire52=J2.2->MAINS_N
+
+; MOV across mains
+Wire53=RV1.1->MAINS_L
+Wire54=RV1.2->MAINS_N
+
+; Channel 1: Fuse -> Relay COM -> Terminal
+Wire55=MAINS_L->F1.1
+Wire56=F1.2->K1.COM
+Wire57=K1.NO->C1.1
+Wire58=K1.NO->R9.1
+Wire59=C1.2->K1.COM
+Wire60=R9.2->K1.COM
+Wire61=K1.NO->J3.3
+Wire62=K1.COM->J3.2
+Wire63=K1.NC->J3.1
+
+; Channel 2
+Wire64=MAINS_L->F2.1
+Wire65=F2.2->K2.COM
+Wire66=K2.NO->C2.1
+Wire67=K2.NO->R10.1
+Wire68=C2.2->K2.COM
+Wire69=R10.2->K2.COM
+Wire70=K2.NO->J4.3
+Wire71=K2.COM->J4.2
+Wire72=K2.NC->J4.1
+
+; Channel 3
+Wire73=MAINS_L->F3.1
+Wire74=F3.2->K3.COM
+Wire75=K3.NO->C3.1
+Wire76=K3.NO->R11.1
+Wire77=C3.2->K3.COM
+Wire78=R11.2->K3.COM
+Wire79=K3.NO->J5.3
+Wire80=K3.COM->J5.2
+Wire81=K3.NC->J5.1
+
+; Channel 4
+Wire82=MAINS_L->F4.1
+Wire83=F4.2->K4.COM
+Wire84=K4.NO->C4.1
+Wire85=K4.NO->R12.1
+Wire86=C4.2->K4.COM
+Wire87=R12.2->K4.COM
+Wire88=K4.NO->J6.3
+Wire89=K4.COM->J6.2
+Wire90=K4.NC->J6.1
+
+; Status LEDs (driven from ULN2803A outputs, active when relay on)
+Wire91=VCOIL_5V_ISO->R13.1
+Wire92=R13.2->D1.A
+Wire93=D1.K->U5.18
+Wire94=VCOIL_5V_ISO->R14.1
+Wire95=R14.2->D2.A
+Wire96=D2.K->U5.17
+Wire97=VCOIL_5V_ISO->R15.1
+Wire98=R15.2->D3.A
+Wire99=D3.K->U5.16
+Wire100=VCOIL_5V_ISO->R16.1
+Wire101=R16.2->D4.A
+Wire102=D4.K->U5.15
+
+; Test Points
+Wire103=TP1.1->VCC_3V3
+Wire104=TP2.1->GND
+Wire105=TP3.1->VCOIL_5V_ISO
+Wire106=TP4.1->K1.COIL+
+Wire107=TP5.1->K2.COIL+
+Wire108=TP6.1->K3.COIL+
+Wire109=TP7.1->K4.COIL+
+
+[Text Annotations]
+Text1=DANGER - MAINS VOLTAGE|X=5000|Y=15000|Size=40|Color=Red|Layer=TopOverlay
+Text2=230VAC MAX|X=5000|Y=14500|Size=20|Color=Red|Layer=TopOverlay
+Text3=L|X=2000|Y=12000|Size=15|Color=Blue|Layer=TopOverlay
+Text4=N|X=3000|Y=12000|Size=15|Color=Blue|Layer=TopOverlay
+Text5=Reference Design - Must be reviewed and certified before use|X=5000|Y=500|Size=15|Color=Black|Layer=TopOverlay
+Text6=Isolated GND (GND_ISO) - Keep separate from logic GND|X=8000|Y=7000|Size=12|Color=Green|Layer=TopOverlay
+Text7=Min 8mm creepage between mains and logic areas|X=5000|Y=6500|Size=12|Color=Red|Layer=TopOverlay
+
+[Design Rules]
+; Safety clearances for 230VAC (IEC 60335-1, Pollution Degree 2)
+Rule1=MinClearance_MainsToLogic=8mm
+Rule2=MinClearance_MainsToMains=3.5mm
+Rule3=MinTraceWidth_Mains=3.5mm
+Rule4=MinTraceWidth_Power=1mm
+Rule5=MinTraceWidth_Signal=0.25mm
+Rule6=ViaDiameter=0.8mm
+Rule7=ViaHole=0.4mm
+
+[End of Schematic]

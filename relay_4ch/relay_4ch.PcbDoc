@@ -1,0 +1,705 @@
+|HEADER=Protel for Windows - PCB ASCII File Version 5.0|
+
+[Board]
+Version=6.0
+BoardThickness=1.6mm
+BoardMaterial=FR-4
+CopperWeight=1oz
+BoardOutline.X1=0mm
+BoardOutline.Y1=0mm
+BoardOutline.X2=120mm
+BoardOutline.Y2=60mm
+LayerCount=2
+TopLayer=Top
+BottomLayer=Bottom
+Finish=HASL
+SolderMaskColor=Green
+SilkscreenColor=White
+
+[LayerStack]
+Layer1=TopOverlay|Silk
+Layer2=TopPaste|Paste
+Layer3=TopSolder|SolderMask
+Layer4=Top|Signal|35um
+Layer5=Dielectric|Core|1.5mm|FR-4|Er=4.5
+Layer6=Bottom|Signal|35um
+Layer7=BottomSolder|SolderMask
+Layer8=BottomPaste|Paste
+Layer9=BottomOverlay|Silk
+
+[Design Rules]
+; Safety clearances for 230VAC mains
+MinClearance_MainsToLogic=8mm
+MinClearance_MainsToMains=3.5mm
+MinClearance_Default=0.2mm
+MinTraceWidth_Mains=3.5mm
+MinTraceWidth_Power=1mm
+MinTraceWidth_Signal=0.25mm
+DefaultViaSize=0.8mm
+DefaultViaHole=0.4mm
+ThermalReliefWidth=0.3mm
+ThermalReliefGap=0.25mm
+
+[Board Zones]
+; Logic zone (MCU header, optocouplers, low voltage)
+Zone1=LogicZone|X1=0mm|Y1=0mm|X2=35mm|Y2=60mm|NetClass=Logic
+; Isolation zone (DC-DC, ULN2803, isolated ground)
+Zone2=IsolationZone|X1=35mm|Y1=0mm|X2=50mm|Y2=60mm|NetClass=Isolated
+; Mains zone (relays, fuses, terminals, MOV)
+Zone3=MainsZone|X1=50mm|Y1=0mm|X2=120mm|Y2=60mm|NetClass=Mains
+
+[Keepout/Slot]
+; Milled slot between logic and mains for increased creepage
+Slot1.Type=RoutedSlot
+Slot1.X1=48mm
+Slot1.Y1=5mm
+Slot1.X2=48mm
+Slot1.Y2=55mm
+Slot1.Width=2mm
+Slot1.Layer=MultiLayer
+Slot1.Note=Creepage isolation slot between logic and mains
+
+[Component Placement]
+; All components on top side
+
+; Logic Area (Left side) - MCU Header and Optocouplers
+; J1 - MCU Header (VCC/GND/IN1-IN4)
+Comp.J1.X=10mm
+Comp.J1.Y=30mm
+Comp.J1.Rotation=0
+Comp.J1.Layer=Top
+Comp.J1.Footprint=HEADER_6P_2.54mm
+
+; Optocouplers U1-U4 (in a row)
+Comp.U1.X=25mm
+Comp.U1.Y=48mm
+Comp.U1.Rotation=0
+Comp.U1.Layer=Top
+Comp.U1.Footprint=PC817_DIP4
+
+Comp.U2.X=25mm
+Comp.U2.Y=38mm
+Comp.U2.Rotation=0
+Comp.U2.Layer=Top
+Comp.U2.Footprint=PC817_DIP4
+
+Comp.U3.X=25mm
+Comp.U3.Y=28mm
+Comp.U3.Rotation=0
+Comp.U3.Layer=Top
+Comp.U3.Footprint=PC817_DIP4
+
+Comp.U4.X=25mm
+Comp.U4.Y=18mm
+Comp.U4.Rotation=0
+Comp.U4.Layer=Top
+Comp.U4.Footprint=PC817_DIP4
+
+; Input resistors R1-R4 near optocouplers
+Comp.R1.X=18mm
+Comp.R1.Y=48mm
+Comp.R1.Rotation=90
+Comp.R1.Layer=Top
+Comp.R1.Footprint=RES_0805
+
+Comp.R2.X=18mm
+Comp.R2.Y=38mm
+Comp.R2.Rotation=90
+Comp.R2.Layer=Top
+Comp.R2.Footprint=RES_0805
+
+Comp.R3.X=18mm
+Comp.R3.Y=28mm
+Comp.R3.Rotation=90
+Comp.R3.Layer=Top
+Comp.R3.Footprint=RES_0805
+
+Comp.R4.X=18mm
+Comp.R4.Y=18mm
+Comp.R4.Rotation=90
+Comp.R4.Layer=Top
+Comp.R4.Footprint=RES_0805
+
+; Pull-up resistors R5-R8
+Comp.R5.X=32mm
+Comp.R5.Y=48mm
+Comp.R5.Rotation=90
+Comp.R5.Layer=Top
+Comp.R5.Footprint=RES_0805
+
+Comp.R6.X=32mm
+Comp.R6.Y=38mm
+Comp.R6.Rotation=90
+Comp.R6.Layer=Top
+Comp.R6.Footprint=RES_0805
+
+Comp.R7.X=32mm
+Comp.R7.Y=28mm
+Comp.R7.Rotation=90
+Comp.R7.Layer=Top
+Comp.R7.Footprint=RES_0805
+
+Comp.R8.X=32mm
+Comp.R8.Y=18mm
+Comp.R8.Rotation=90
+Comp.R8.Layer=Top
+Comp.R8.Footprint=RES_0805
+
+; Bypass capacitor C5
+Comp.C5.X=10mm
+Comp.C5.Y=50mm
+Comp.C5.Rotation=0
+Comp.C5.Layer=Top
+Comp.C5.Footprint=CAP_0805
+
+; Isolation Area (Middle) - DC-DC and ULN2803
+; U6 - DC-DC Converter NME0505SC
+Comp.U6.X=42mm
+Comp.U6.Y=50mm
+Comp.U6.Rotation=90
+Comp.U6.Layer=Top
+Comp.U6.Footprint=NME0505SC_SIP4
+
+; U5 - ULN2803A Driver
+Comp.U5.X=42mm
+Comp.U5.Y=30mm
+Comp.U5.Rotation=0
+Comp.U5.Layer=Top
+Comp.U5.Footprint=ULN2803A_DIP18
+
+; Bypass capacitor C6
+Comp.C6.X=42mm
+Comp.C6.Y=42mm
+Comp.C6.Rotation=0
+Comp.C6.Layer=Top
+Comp.C6.Footprint=CAP_0805
+
+; Solder jumper SJ1 (GND-GND_ISO)
+Comp.SJ1.X=42mm
+Comp.SJ1.Y=10mm
+Comp.SJ1.Rotation=0
+Comp.SJ1.Layer=Top
+Comp.SJ1.Footprint=JUMPER_SJ_0805
+
+; Mains Area (Right side) - Relays, Fuses, Terminals
+; K1-K4 Relays in a row
+Comp.K1.X=65mm
+Comp.K1.Y=30mm
+Comp.K1.Rotation=90
+Comp.K1.Layer=Top
+Comp.K1.Footprint=SRD_05VDC_SL_C
+
+Comp.K2.X=80mm
+Comp.K2.Y=30mm
+Comp.K2.Rotation=90
+Comp.K2.Layer=Top
+Comp.K2.Footprint=SRD_05VDC_SL_C
+
+Comp.K3.X=95mm
+Comp.K3.Y=30mm
+Comp.K3.Rotation=90
+Comp.K3.Layer=Top
+Comp.K3.Footprint=SRD_05VDC_SL_C
+
+Comp.K4.X=110mm
+Comp.K4.Y=30mm
+Comp.K4.Rotation=90
+Comp.K4.Layer=Top
+Comp.K4.Footprint=SRD_05VDC_SL_C
+
+; Status LEDs D1-D4 near relays
+Comp.D1.X=65mm
+Comp.D1.Y=48mm
+Comp.D1.Rotation=0
+Comp.D1.Layer=Top
+Comp.D1.Footprint=LED_0805
+
+Comp.D2.X=80mm
+Comp.D2.Y=48mm
+Comp.D2.Rotation=0
+Comp.D2.Layer=Top
+Comp.D2.Footprint=LED_0805
+
+Comp.D3.X=95mm
+Comp.D3.Y=48mm
+Comp.D3.Rotation=0
+Comp.D3.Layer=Top
+Comp.D3.Footprint=LED_0805
+
+Comp.D4.X=110mm
+Comp.D4.Y=48mm
+Comp.D4.Rotation=0
+Comp.D4.Layer=Top
+Comp.D4.Footprint=LED_0805
+
+; LED resistors R13-R16
+Comp.R13.X=65mm
+Comp.R13.Y=52mm
+Comp.R13.Rotation=0
+Comp.R13.Layer=Top
+Comp.R13.Footprint=RES_0805
+
+Comp.R14.X=80mm
+Comp.R14.Y=52mm
+Comp.R14.Rotation=0
+Comp.R14.Layer=Top
+Comp.R14.Footprint=RES_0805
+
+Comp.R15.X=95mm
+Comp.R15.Y=52mm
+Comp.R15.Rotation=0
+Comp.R15.Layer=Top
+Comp.R15.Footprint=RES_0805
+
+Comp.R16.X=110mm
+Comp.R16.Y=52mm
+Comp.R16.Rotation=0
+Comp.R16.Layer=Top
+Comp.R16.Footprint=RES_0805
+
+; Mains Input Terminal J2 (top edge, near MOV)
+Comp.J2.X=58mm
+Comp.J2.Y=56mm
+Comp.J2.Rotation=0
+Comp.J2.Layer=Top
+Comp.J2.Footprint=TERMINAL_2P_5.08mm
+
+; MOV RV1 near mains input
+Comp.RV1.X=58mm
+Comp.RV1.Y=48mm
+Comp.RV1.Rotation=0
+Comp.RV1.Layer=Top
+Comp.RV1.Footprint=MOV_14D
+
+; Fuses F1-F4 near mains input
+Comp.F1.X=55mm
+Comp.F1.Y=38mm
+Comp.F1.Rotation=90
+Comp.F1.Layer=Top
+Comp.F1.Footprint=FUSE_5x20_HOLDER
+
+Comp.F2.X=55mm
+Comp.F2.Y=28mm
+Comp.F2.Rotation=90
+Comp.F2.Layer=Top
+Comp.F2.Footprint=FUSE_5x20_HOLDER
+
+Comp.F3.X=55mm
+Comp.F3.Y=18mm
+Comp.F3.Rotation=90
+Comp.F3.Layer=Top
+Comp.F3.Footprint=FUSE_5x20_HOLDER
+
+Comp.F4.X=55mm
+Comp.F4.Y=8mm
+Comp.F4.Rotation=90
+Comp.F4.Layer=Top
+Comp.F4.Footprint=FUSE_5x20_HOLDER
+
+; Output Terminals J3-J6 (bottom edge)
+Comp.J3.X=65mm
+Comp.J3.Y=4mm
+Comp.J3.Rotation=0
+Comp.J3.Layer=Top
+Comp.J3.Footprint=TERMINAL_3P_5.08mm
+
+Comp.J4.X=80mm
+Comp.J4.Y=4mm
+Comp.J4.Rotation=0
+Comp.J4.Layer=Top
+Comp.J4.Footprint=TERMINAL_3P_5.08mm
+
+Comp.J5.X=95mm
+Comp.J5.Y=4mm
+Comp.J5.Rotation=0
+Comp.J5.Layer=Top
+Comp.J5.Footprint=TERMINAL_3P_5.08mm
+
+Comp.J6.X=110mm
+Comp.J6.Y=4mm
+Comp.J6.Rotation=0
+Comp.J6.Layer=Top
+Comp.J6.Footprint=TERMINAL_3P_5.08mm
+
+; Snubber capacitors C1-C4 (near relay outputs)
+Comp.C1.X=65mm
+Comp.C1.Y=15mm
+Comp.C1.Rotation=90
+Comp.C1.Layer=Top
+Comp.C1.Footprint=CAP_X2_15mm
+
+Comp.C2.X=80mm
+Comp.C2.Y=15mm
+Comp.C2.Rotation=90
+Comp.C2.Layer=Top
+Comp.C2.Footprint=CAP_X2_15mm
+
+Comp.C3.X=95mm
+Comp.C3.Y=15mm
+Comp.C3.Rotation=90
+Comp.C3.Layer=Top
+Comp.C3.Footprint=CAP_X2_15mm
+
+Comp.C4.X=110mm
+Comp.C4.Y=15mm
+Comp.C4.Rotation=90
+Comp.C4.Layer=Top
+Comp.C4.Footprint=CAP_X2_15mm
+
+; Snubber resistors R9-R12
+Comp.R9.X=68mm
+Comp.R9.Y=15mm
+Comp.R9.Rotation=90
+Comp.R9.Layer=Top
+Comp.R9.Footprint=RES_MELF_0207
+
+Comp.R10.X=83mm
+Comp.R10.Y=15mm
+Comp.R10.Rotation=90
+Comp.R10.Layer=Top
+Comp.R10.Footprint=RES_MELF_0207
+
+Comp.R11.X=98mm
+Comp.R11.Y=15mm
+Comp.R11.Rotation=90
+Comp.R11.Layer=Top
+Comp.R11.Footprint=RES_MELF_0207
+
+Comp.R12.X=113mm
+Comp.R12.Y=15mm
+Comp.R12.Rotation=90
+Comp.R12.Layer=Top
+Comp.R12.Footprint=RES_MELF_0207
+
+; Test Points
+Comp.TP1.X=5mm
+Comp.TP1.Y=55mm
+Comp.TP1.Rotation=0
+Comp.TP1.Layer=Top
+Comp.TP1.Footprint=TESTPOINT_1.5mm
+
+Comp.TP2.X=5mm
+Comp.TP2.Y=50mm
+Comp.TP2.Rotation=0
+Comp.TP2.Layer=Top
+Comp.TP2.Footprint=TESTPOINT_1.5mm
+
+Comp.TP3.X=42mm
+Comp.TP3.Y=55mm
+Comp.TP3.Rotation=0
+Comp.TP3.Layer=Top
+Comp.TP3.Footprint=TESTPOINT_1.5mm
+
+Comp.TP4.X=65mm
+Comp.TP4.Y=42mm
+Comp.TP4.Rotation=0
+Comp.TP4.Layer=Top
+Comp.TP4.Footprint=TESTPOINT_1.5mm
+
+Comp.TP5.X=80mm
+Comp.TP5.Y=42mm
+Comp.TP5.Rotation=0
+Comp.TP5.Layer=Top
+Comp.TP5.Footprint=TESTPOINT_1.5mm
+
+Comp.TP6.X=95mm
+Comp.TP6.Y=42mm
+Comp.TP6.Rotation=0
+Comp.TP6.Layer=Top
+Comp.TP6.Footprint=TESTPOINT_1.5mm
+
+Comp.TP7.X=110mm
+Comp.TP7.Y=42mm
+Comp.TP7.Rotation=0
+Comp.TP7.Layer=Top
+Comp.TP7.Footprint=TESTPOINT_1.5mm
+
+[Copper Pour]
+; Bottom layer ground pour (split for isolation)
+Pour1.Name=GND_Pour
+Pour1.Layer=Bottom
+Pour1.Net=GND
+Pour1.Region=0mm,0mm,45mm,60mm
+Pour1.ThermalRelief=T
+Pour1.Priority=1
+
+Pour2.Name=GND_ISO_Pour
+Pour2.Layer=Bottom
+Pour2.Net=GND_ISO
+Pour2.Region=50mm,0mm,120mm,60mm
+Pour2.ThermalRelief=T
+Pour2.Priority=1
+
+[Tracks - Power]
+; VCC_3V3 distribution (1mm width)
+Track1.Net=VCC_3V3
+Track1.Width=1mm
+Track1.Layer=Top
+Track1.Points=J1.1,C5.1,TP1.1,R1-R4 anode side
+
+; GND distribution (1mm width)
+Track2.Net=GND
+Track2.Width=1mm
+Track2.Layer=Top
+Track2.Points=J1.2,C5.2,TP2.1,U1-U4 cathode
+
+; VCOIL_5V_ISO distribution (1mm width)
+Track3.Net=VCOIL_5V_ISO
+Track3.Width=1mm
+Track3.Layer=Top
+Track3.Points=U6.4,C6.1,K1-K4.COIL+,R5-R8,R13-R16,TP3.1,U5.10
+
+[Tracks - Mains]
+; MAINS_L distribution (4mm width, multiple vias)
+Track4.Net=MAINS_L
+Track4.Width=4mm
+Track4.Layer=Top
+Track4.Points=J2.1,RV1.1,F1.1,F2.1,F3.1,F4.1
+
+; Relay COM to fuse output (4mm width)
+Track5.Net=CH1_FUSED
+Track5.Width=4mm
+Track5.Layer=Top
+Track5.Points=F1.2,K1.COM
+
+Track6.Net=CH2_FUSED
+Track6.Width=4mm
+Track6.Layer=Top
+Track6.Points=F2.2,K2.COM
+
+Track7.Net=CH3_FUSED
+Track7.Width=4mm
+Track7.Layer=Top
+Track7.Points=F3.2,K3.COM
+
+Track8.Net=CH4_FUSED
+Track8.Width=4mm
+Track8.Layer=Top
+Track8.Points=F4.2,K4.COM
+
+; Relay outputs to terminals (4mm width)
+Track9.Net=CH1_NO
+Track9.Width=4mm
+Track9.Layer=Top
+Track9.Points=K1.NO,J3.3
+
+Track10.Net=CH1_COM
+Track10.Width=4mm
+Track10.Layer=Top
+Track10.Points=K1.COM,J3.2
+
+Track11.Net=CH1_NC
+Track11.Width=4mm
+Track11.Layer=Top
+Track11.Points=K1.NC,J3.1
+
+; Similar for CH2-CH4...
+
+[Silkscreen Text]
+; Warning labels
+Silk1.Text=DANGER
+Silk1.X=70mm
+Silk1.Y=57mm
+Silk1.Size=3mm
+Silk1.Layer=TopOverlay
+Silk1.Bold=T
+
+Silk2.Text=MAINS VOLTAGE
+Silk2.X=58mm
+Silk2.Y=54mm
+Silk2.Size=2mm
+Silk2.Layer=TopOverlay
+
+Silk3.Text=230VAC MAX
+Silk3.X=62mm
+Silk3.Y=51mm
+Silk3.Size=1.5mm
+Silk3.Layer=TopOverlay
+
+; Terminal labels
+Silk4.Text=L
+Silk4.X=56mm
+Silk4.Y=58mm
+Silk4.Size=1.5mm
+Silk4.Layer=TopOverlay
+
+Silk5.Text=N
+Silk5.X=60mm
+Silk5.Y=58mm
+Silk5.Size=1.5mm
+Silk5.Layer=TopOverlay
+
+; Channel labels
+Silk6.Text=CH1
+Silk6.X=65mm
+Silk6.Y=8mm
+Silk6.Size=1.2mm
+Silk6.Layer=TopOverlay
+
+Silk7.Text=CH2
+Silk7.X=80mm
+Silk7.Y=8mm
+Silk7.Size=1.2mm
+Silk7.Layer=TopOverlay
+
+Silk8.Text=CH3
+Silk8.X=95mm
+Silk8.Y=8mm
+Silk8.Size=1.2mm
+Silk8.Layer=TopOverlay
+
+Silk9.Text=CH4
+Silk9.X=110mm
+Silk9.Y=8mm
+Silk9.Size=1.2mm
+Silk9.Layer=TopOverlay
+
+; NC/COM/NO labels for each channel
+Silk10.Text=NC COM NO
+Silk10.X=65mm
+Silk10.Y=1mm
+Silk10.Size=0.8mm
+Silk10.Layer=TopOverlay
+
+Silk11.Text=NC COM NO
+Silk11.X=80mm
+Silk11.Y=1mm
+Silk11.Size=0.8mm
+Silk11.Layer=TopOverlay
+
+Silk12.Text=NC COM NO
+Silk12.X=95mm
+Silk12.Y=1mm
+Silk12.Size=0.8mm
+Silk12.Layer=TopOverlay
+
+Silk13.Text=NC COM NO
+Silk13.X=110mm
+Silk13.Y=1mm
+Silk13.Size=0.8mm
+Silk13.Layer=TopOverlay
+
+; MCU header labels
+Silk14.Text=MCU
+Silk14.X=10mm
+Silk14.Y=40mm
+Silk14.Size=1.2mm
+Silk14.Layer=TopOverlay
+
+Silk15.Text=3V3
+Silk15.X=5mm
+Silk15.Y=36mm
+Silk15.Size=0.8mm
+Silk15.Layer=TopOverlay
+
+Silk16.Text=GND
+Silk16.X=5mm
+Silk16.Y=34mm
+Silk16.Size=0.8mm
+Silk16.Layer=TopOverlay
+
+Silk17.Text=IN1-4
+Silk17.X=5mm
+Silk17.Y=28mm
+Silk17.Size=0.8mm
+Silk17.Layer=TopOverlay
+
+; Test point labels
+Silk18.Text=TP-3V3
+Silk18.X=2mm
+Silk18.Y=55mm
+Silk18.Size=0.6mm
+Silk18.Layer=TopOverlay
+
+Silk19.Text=TP-GND
+Silk19.X=2mm
+Silk19.Y=50mm
+Silk19.Size=0.6mm
+Silk19.Layer=TopOverlay
+
+Silk20.Text=TP-5V-ISO
+Silk20.X=38mm
+Silk20.Y=55mm
+Silk20.Size=0.6mm
+Silk20.Layer=TopOverlay
+
+; Isolation warning
+Silk21.Text=ISOLATION BARRIER
+Silk21.X=45mm
+Silk21.Y=30mm
+Silk21.Size=0.8mm
+Silk21.Layer=TopOverlay
+Silk21.Rotation=90
+
+; Safety note
+Silk22.Text=REF DESIGN - REVIEW BEFORE USE
+Silk22.X=60mm
+Silk22.Y=59mm
+Silk22.Size=0.8mm
+Silk22.Layer=TopOverlay
+
+; Solder jumper label
+Silk23.Text=SJ1-GND/GND_ISO
+Silk23.X=38mm
+Silk23.Y=8mm
+Silk23.Size=0.6mm
+Silk23.Layer=TopOverlay
+
+[Mounting Holes]
+; Four corner mounting holes (M3)
+Mount1.X=3mm
+Mount1.Y=3mm
+Mount1.Diameter=3.2mm
+Mount1.PadDiameter=6mm
+
+Mount2.X=117mm
+Mount2.Y=3mm
+Mount2.Diameter=3.2mm
+Mount2.PadDiameter=6mm
+
+Mount3.X=3mm
+Mount3.Y=57mm
+Mount3.Diameter=3.2mm
+Mount3.PadDiameter=6mm
+
+Mount4.X=117mm
+Mount4.Y=57mm
+Mount4.Diameter=3.2mm
+Mount4.PadDiameter=6mm
+
+[Board Outline]
+; Rectangular board 120x60mm
+Line1.X1=0mm
+Line1.Y1=0mm
+Line1.X2=120mm
+Line1.Y2=0mm
+Line1.Layer=Mechanical1
+
+Line2.X1=120mm
+Line2.Y1=0mm
+Line2.X2=120mm
+Line2.Y2=60mm
+Line2.Layer=Mechanical1
+
+Line3.X1=120mm
+Line3.Y1=60mm
+Line3.X2=0mm
+Line3.Y2=60mm
+Line3.Layer=Mechanical1
+
+Line4.X1=0mm
+Line4.Y1=60mm
+Line4.X2=0mm
+Line4.Y2=0mm
+Line4.Layer=Mechanical1
+
+[Fabrication Notes]
+Note1=2-Layer PCB, FR-4 1.6mm, 1oz copper
+Note2=HASL finish, Green solder mask, White silkscreen
+Note3=Board size: 120mm x 60mm
+Note4=Minimum trace width: 0.25mm (signal), 3.5mm (mains)
+Note5=Minimum clearance: 0.2mm (signal), 3.5mm (mains-mains), 8mm (mains-logic)
+Note6=Milled slot at X=48mm, Y=5-55mm, Width=2mm for isolation
+Note7=4x M3 mounting holes at corners
+
+[End of PCB Document]
