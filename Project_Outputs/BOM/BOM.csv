@@ -1,0 +1,50 @@
+Designator,Comment,Description,Footprint,Quantity,Manufacturer,Part Number,Value
+J1,MCU_HEADER_1X6,"6-Pin Header for MCU Interface (3.3V/GND/IN1-IN4)",HDR_1X6_2.54MM,1,Generic,PINHD-1X6,N/A
+U1,PC817,"Optocoupler PC817 for Channel 1",DIP-4,1,Sharp,PC817,N/A
+U2,PC817,"Optocoupler PC817 for Channel 2",DIP-4,1,Sharp,PC817,N/A
+U3,PC817,"Optocoupler PC817 for Channel 3",DIP-4,1,Sharp,PC817,N/A
+U4,PC817,"Optocoupler PC817 for Channel 4",DIP-4,1,Sharp,PC817,N/A
+U5,ULN2803A,"Darlington Transistor Array ULN2803A",DIP-18,1,Texas Instruments,ULN2803AN,N/A
+K1,SRD-05VDC-SL-C,"Relay 5V SPDT 10A (Songle) Channel 1",RELAY_SRD,1,Songle,SRD-05VDC-SL-C,5V/10A
+K2,SRD-05VDC-SL-C,"Relay 5V SPDT 10A (Songle) Channel 2",RELAY_SRD,1,Songle,SRD-05VDC-SL-C,5V/10A
+K3,SRD-05VDC-SL-C,"Relay 5V SPDT 10A (Songle) Channel 3",RELAY_SRD,1,Songle,SRD-05VDC-SL-C,5V/10A
+K4,SRD-05VDC-SL-C,"Relay 5V SPDT 10A (Songle) Channel 4",RELAY_SRD,1,Songle,SRD-05VDC-SL-C,5V/10A
+PS1,NME0505SC,"Isolated DC-DC Converter 5V to 5V (Murata)",SIP-4,1,Murata,NME0505SC,5V-5V/1W
+RV1,MOV_14D471K,"Metal Oxide Varistor 470V",MOV_14MM,1,Littelfuse,V14E471P,470V
+F1,FUSE_5x20,"Glass Fuse 10A 250V Channel 1",FUSE_5X20,1,Generic,5x20mm Fuse,10A/250V
+F2,FUSE_5x20,"Glass Fuse 10A 250V Channel 2",FUSE_5X20,1,Generic,5x20mm Fuse,10A/250V
+F3,FUSE_5x20,"Glass Fuse 10A 250V Channel 3",FUSE_5X20,1,Generic,5x20mm Fuse,10A/250V
+F4,FUSE_5x20,"Glass Fuse 10A 250V Channel 4",FUSE_5X20,1,Generic,5x20mm Fuse,10A/250V
+SN1,SNUBBER_RC,"RC Snubber 100nF X2 + 100R Channel 1",SNUBBER_RC,1,Kemet/Generic,RC Snubber,100nF X2 + 100R
+SN2,SNUBBER_RC,"RC Snubber 100nF X2 + 100R Channel 2",SNUBBER_RC,1,Kemet/Generic,RC Snubber,100nF X2 + 100R
+SN3,SNUBBER_RC,"RC Snubber 100nF X2 + 100R Channel 3",SNUBBER_RC,1,Kemet/Generic,RC Snubber,100nF X2 + 100R
+SN4,SNUBBER_RC,"RC Snubber 100nF X2 + 100R Channel 4",SNUBBER_RC,1,Kemet/Generic,RC Snubber,100nF X2 + 100R
+D1,LED,"Status LED Channel 1 (Green)",LED_3MM,1,Generic,LED 3mm Green,Green
+D2,LED,"Status LED Channel 2 (Green)",LED_3MM,1,Generic,LED 3mm Green,Green
+D3,LED,"Status LED Channel 3 (Green)",LED_3MM,1,Generic,LED 3mm Green,Green
+D4,LED,"Status LED Channel 4 (Green)",LED_3MM,1,Generic,LED 3mm Green,Green
+R1,RES_0603,"LED Current Limiting Resistor Channel 1",RES_0603,1,Generic,0603 Resistor,1K
+R2,RES_0603,"LED Current Limiting Resistor Channel 2",RES_0603,1,Generic,0603 Resistor,1K
+R3,RES_0603,"LED Current Limiting Resistor Channel 3",RES_0603,1,Generic,0603 Resistor,1K
+R4,RES_0603,"LED Current Limiting Resistor Channel 4",RES_0603,1,Generic,0603 Resistor,1K
+R5,RES_0603,"Opto Current Limiting Resistor Channel 1",RES_0603,1,Generic,0603 Resistor,330R
+R6,RES_0603,"Opto Current Limiting Resistor Channel 2",RES_0603,1,Generic,0603 Resistor,330R
+R7,RES_0603,"Opto Current Limiting Resistor Channel 3",RES_0603,1,Generic,0603 Resistor,330R
+R8,RES_0603,"Opto Current Limiting Resistor Channel 4",RES_0603,1,Generic,0603 Resistor,330R
+J2,TERMINAL_BLOCK_2P,"Mains Input Terminal L/N",TERM_2P_5.08MM,1,Phoenix Contact,MKDSN 1.5/2-5.08,5.08mm 2P
+J3,TERMINAL_BLOCK_3P,"Channel 1 Output Terminal COM/NO/NC",TERM_3P_5.08MM,1,Phoenix Contact,MKDSN 1.5/3-5.08,5.08mm 3P
+J4,TERMINAL_BLOCK_3P,"Channel 2 Output Terminal COM/NO/NC",TERM_3P_5.08MM,1,Phoenix Contact,MKDSN 1.5/3-5.08,5.08mm 3P
+J5,TERMINAL_BLOCK_3P,"Channel 3 Output Terminal COM/NO/NC",TERM_3P_5.08MM,1,Phoenix Contact,MKDSN 1.5/3-5.08,5.08mm 3P
+J6,TERMINAL_BLOCK_3P,"Channel 4 Output Terminal COM/NO/NC",TERM_3P_5.08MM,1,Phoenix Contact,MKDSN 1.5/3-5.08,5.08mm 3P
+TP1,TEST_POINT,"Test Point VCC_3V3",TEST_POINT,1,Generic,Test Point,N/A
+TP2,TEST_POINT,"Test Point GND",TEST_POINT,1,Generic,Test Point,N/A
+TP3,TEST_POINT,"Test Point VCOIL_5V_ISO",TEST_POINT,1,Generic,Test Point,N/A
+TP4,TEST_POINT,"Test Point K1 Coil",TEST_POINT,1,Generic,Test Point,N/A
+TP5,TEST_POINT,"Test Point K2 Coil",TEST_POINT,1,Generic,Test Point,N/A
+TP6,TEST_POINT,"Test Point K3 Coil",TEST_POINT,1,Generic,Test Point,N/A
+TP7,TEST_POINT,"Test Point K4 Coil",TEST_POINT,1,Generic,Test Point,N/A
+SJ1,SOLDER_JUMPER,"Optional Solder Jumper GND to GND_ISO",SOLDER_JUMPER,1,Generic,Solder Jumper,N/A
+C1,CAP_100UF,"Bulk Capacitor 100uF 10V",CAP_ELEC_6.3MM,1,Nichicon,UVR1A101MDD,100uF/10V
+C2,CAP_100UF,"Bulk Capacitor 100uF 10V ISO Side",CAP_ELEC_6.3MM,1,Nichicon,UVR1A101MDD,100uF/10V
+C3,CAP_100NF,"Bypass Capacitor",CAP_0603,1,Murata,GRM188R71H104KA93D,100nF/50V
+C4,CAP_100NF,"Bypass Capacitor ISO Side",CAP_0603,1,Murata,GRM188R71H104KA93D,100nF/50V
